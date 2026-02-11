@@ -1,6 +1,11 @@
 package com.alan.learning;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Alien {
+    @Id
     private int aid;
     private String aname;
     private String color;
