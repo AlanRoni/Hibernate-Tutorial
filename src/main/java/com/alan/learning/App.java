@@ -8,29 +8,31 @@ import org.hibernate.cfg.Configuration;
 public class App {
     public static void main(String[] args)  {
 
-        AlienName an = new AlienName();
-        an.setFname("Alan");
-        an.setMname("Roni");
-        an.setLname("Mathew");
 
-        Alien mars = new Alien();
-        mars.setAid(112);
-        mars.setAname(an);
-        mars.setColor("Blue");
+        laptop l = new laptop();
+        l.setId(3);
+        l.setLapname("Dell");
 
+        student studs = new student();
+        studs.setRoll(3);
+        studs.setName("Roni");
+        studs.setMarks(89);
+        studs.setL(l);
 
-        Configuration con = new Configuration().configure().addAnnotatedClass(Alien.class);
+        
+        
+        Configuration con = new Configuration().configure().addAnnotatedClass(student.class).addAnnotatedClass(laptop.class);
 
         try (SessionFactory sf = con.buildSessionFactory(); 
         Session session = sf.openSession()) {
             
             Transaction tx = session.beginTransaction();
             
-            session.persist(mars);
+            session.persist(l);
+            session.persist(studs);
             
             tx.commit();
         }
-        System.out.println(mars);
         
     }
 }
