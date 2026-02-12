@@ -7,12 +7,16 @@ import org.hibernate.cfg.Configuration;
 
 public class App {
     public static void main(String[] args)  {
-        Alien mars;
-        
-        //new Alien();
-        // mars.setAid(102);
-        // mars.setAname("Alwin");
-        // mars.setColor("Blue");
+
+        AlienName an = new AlienName();
+        an.setFname("Alan");
+        an.setMname("Roni");
+        an.setLname("Mathew");
+
+        Alien mars = new Alien();
+        mars.setAid(112);
+        mars.setAname(an);
+        mars.setColor("Blue");
 
 
         Configuration con = new Configuration().configure().addAnnotatedClass(Alien.class);
@@ -22,7 +26,7 @@ public class App {
             
             Transaction tx = session.beginTransaction();
             
-            mars = session.find(Alien.class, 101);
+            session.persist(mars);
             
             tx.commit();
         }
