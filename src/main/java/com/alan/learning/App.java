@@ -10,14 +10,14 @@ public class App {
 
 
         laptop l = new laptop();
-        l.setId(3);
+        l.setId(1);
         l.setLapname("Dell");
 
         student studs = new student();
-        studs.setRoll(3);
+        studs.setRoll(1);
         studs.setName("Roni");
         studs.setMarks(89);
-        studs.setL(l);
+        studs.getL().add(l);
 
         
         

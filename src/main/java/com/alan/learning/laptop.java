@@ -7,13 +7,15 @@ import java.util.ListIterator;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class laptop implements List<laptop> {
     @Id
     private int lid;
     private String lapname;
-
+    @ManyToOne
+    private student Student;
     public int getId() {
         return lid;
     }
@@ -140,5 +142,21 @@ public class laptop implements List<laptop> {
     @Override
     public List<laptop> subList(int fromIndex, int toIndex) {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public int getLid() {
+        return lid;
+    }
+
+    public void setLid(int lid) {
+        this.lid = lid;
+    }
+
+    public student getStudent() {
+        return Student;
+    }
+
+    public void setStudent(student Student) {
+        this.Student = Student;
     }
 }

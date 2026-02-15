@@ -1,8 +1,11 @@
 package com.alan.learning;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class student {
@@ -10,8 +13,8 @@ public class student {
     private int roll;
     private String sname;
     private int marks;
-    @OneToOne
-    private laptop lap;
+    @OneToMany
+    private List<laptop> lap = new ArrayList<>();
 
     public int getRoll() {
         return roll;
@@ -32,11 +35,11 @@ public class student {
         this.marks = marks;
     }
 
-    public laptop getL() {
+    public List<laptop> getL() {
         return lap;
     }
 
-    public void setL(laptop l) {
+    public void setL(List<laptop> l) {
         this.lap = l;
     }
 }
