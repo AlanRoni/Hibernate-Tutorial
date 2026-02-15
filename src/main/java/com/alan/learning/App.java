@@ -19,7 +19,7 @@ public class App {
         studs.setMarks(89);
         studs.getL().add(l);
 
-        
+        l.getStudent().add(studs);
         
         Configuration con = new Configuration().configure().addAnnotatedClass(student.class).addAnnotatedClass(laptop.class);
 
