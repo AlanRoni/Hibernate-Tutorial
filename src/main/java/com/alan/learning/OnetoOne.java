@@ -1,5 +1,5 @@
-package com.alan.learning;
+// package com.alan.learning;
 
-public @interface OnetoOne {
+// public @interface OnetoOne {
 
-}
+// }
